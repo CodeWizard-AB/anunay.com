@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/components/ui/theme-provider";
+import { cn } from "@/lib/utils";
 
 const interFont = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Anunay Argha - Web Developer",
-	description: "Anunay Argha is a web developer.",
+	description: "Anunay Argha is a web developer you are looking for.",
 };
 
 export default function RootLayout({
@@ -18,20 +18,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body
-				className={`${interFont.className} antialiased scroll-smooth container`}
-			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="dark"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<Header />
-					<main>{children}</main>
-					<Footer />
-				</ThemeProvider>
+		<html lang="en" className="dark">
+			<body className={cn(interFont.className, "container")}>
+				<Header />
+				<main>{children}</main>
+				<Footer />
 			</body>
 		</html>
 	);

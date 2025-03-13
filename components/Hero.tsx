@@ -107,7 +107,7 @@ export default function Hero() {
 					</Link>
 				</div>
 			</div>
-			<CardContainer className="hidden max-w-full h-full w-full relative overflow-hidden">
+			<CardContainer className="max-w-full h-full w-full relative overflow-hidden">
 				<motion.div
 					className="h-[535px] w-full rounded-md relative overflow-hidden"
 					initial={{ opacity: 0, scale: 0 }}

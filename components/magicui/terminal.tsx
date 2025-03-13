@@ -83,7 +83,7 @@ export const TypingAnimation = ({
 	return (
 		<MotionComponent
 			ref={elementRef}
-			className={cn("text-sm font-normal tracking-tight", className)}
+			className={cn("text-base font-normal tracking-normal", className)}
 			{...props}
 		>
 			{displayedText}
@@ -100,11 +100,11 @@ export const Terminal = ({ children, className }: TerminalProps) => {
 	return (
 		<div
 			className={cn(
-				"z-0 h-full w-full rounded-md border border-border bg-background",
+				"z-0 h-full w-full rounded-md border border-white/20 bg-background",
 				className
 			)}
 		>
-			<div className="flex flex-col gap-y-2 border-b border-border py-5 px-8">
+			<div className="flex flex-col gap-y-2 border-b border-white/20 py-5 px-8">
 				<div className="flex flex-row gap-x-2">
 					<div className="w-3 aspect-square rounded-full bg-red-500"></div>
 					<div className="w-3 aspect-square rounded-full bg-yellow-500"></div>

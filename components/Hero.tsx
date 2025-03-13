@@ -10,22 +10,10 @@ import { BorderBeam } from "./magicui/border-beam";
 import { Download } from "lucide-react";
 import Profile from "@/assets/profile-1.webp";
 import { Fira_Code } from "next/font/google";
+import * as motion from "motion/react-client";
+import { CardContainer } from "./ui/3d-card";
 
 const firaCode = Fira_Code({ subsets: ["latin"] });
-
-const coder = `const coder = {
-  name: 'Master Coder',
-  skills: ['React.js', 'Next.js', 'Tailwind CSS'],
-  hardWorker: true,
-  problemSolver: true,
-  hireable: function() {
-    return (
-      this.hardWorker &&
-      this.problemSolver &&
-      this.skills.length >= 5
-    );
-  }
-};`;
 
 export default function Hero() {
 	return (
@@ -62,11 +50,11 @@ export default function Hero() {
 					</h1>
 				</div>
 
-				<p className="leading-loose tracking-wider">
+				<div className="leading-loose tracking-wider">
 					A Frontend-Focused, Full-Stack Ready - Passionate about transforming
 					visions into intuitive, meaningful, and unforgettable digital
 					experiences.
-				</p>
+				</div>
 
 				<Link href="/" download>
 					<Button>
@@ -74,24 +62,202 @@ export default function Hero() {
 					</Button>
 				</Link>
 			</div>
-
-			<div className="h-full rounded-md relative overflow-hidden">
-				<BorderBeam
-					duration={8}
-					size={400}
-					className="from-pink-500 via-primary to-transparent"
-				/>
-				<Terminal>
-					<div
-						className={cn(
-							"*:tracking-normal *:text-base *:leading-loose",
-							firaCode.className
-						)}
-					>
-						{coder}
-					</div>
-				</Terminal>
-			</div>
+			<CardContainer className="h-full w-full">
+				<motion.div
+					className="h-[535px] w-full rounded-md relative overflow-hidden"
+					initial={{ opacity: 0, scale: 0.5 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.5 }}
+				>
+					<BorderBeam
+						duration={8}
+						size={400}
+						className="from-pink-500 via-primary to-transparent"
+					/>
+					<Terminal>
+						<TypedAnimation />
+					</Terminal>
+				</motion.div>
+			</CardContainer>
 		</section>
+	);
+}
+
+function TypedAnimation() {
+	return (
+		<div className={cn(firaCode.className, "*:leading-loose text-white")}>
+			<div>
+				<TypingAnimation className="text-pink-500">const</TypingAnimation>{" "}
+				<TypingAnimation delay={150}>coder</TypingAnimation>{" "}
+				<TypingAnimation delay={300} className="text-pink-500">
+					=
+				</TypingAnimation>{" "}
+				<TypingAnimation delay={450} className="text-gray-500">
+					{"{"}
+				</TypingAnimation>
+			</div>
+
+			<div className="pl-8">
+				<div>
+					<TypingAnimation delay={600}>name</TypingAnimation>
+					<TypingAnimation delay={750} className="text-gray-500">
+						:
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={900} className="text-gray-500">
+						&quot;
+					</TypingAnimation>
+					<TypingAnimation delay={1050} className="text-yellow-300">
+						Master Coder
+					</TypingAnimation>
+					<TypingAnimation delay={1200} className="text-gray-500">
+						&quot;
+					</TypingAnimation>
+					<TypingAnimation delay={1350} className="text-gray-500">
+						,
+					</TypingAnimation>
+				</div>
+				<div>
+					<TypingAnimation delay={1500}>skills</TypingAnimation>
+					<TypingAnimation delay={1650} className="text-gray-500">
+						:
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={1800} className="text-gray-500">
+						{"["}
+					</TypingAnimation>
+					<TypingAnimation delay={1950} className="text-gray-500">
+						&quot;
+					</TypingAnimation>
+					<TypingAnimation delay={2100} className="text-yellow-300">
+						React.js
+					</TypingAnimation>
+					<TypingAnimation delay={2250} className="text-gray-500">
+						&quot;
+					</TypingAnimation>
+					<TypingAnimation delay={2400} className="text-gray-500">
+						,
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={2550} className="text-gray-500">
+						&quot;
+					</TypingAnimation>
+					<TypingAnimation delay={2700} className="text-yellow-300">
+						Next.js
+					</TypingAnimation>
+					<TypingAnimation delay={2850} className="text-gray-500">
+						&quot;
+					</TypingAnimation>
+					<TypingAnimation delay={3000} className="text-gray-500">
+						,
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={3150} className="text-gray-500">
+						&quot;
+					</TypingAnimation>
+					<TypingAnimation delay={3300} className="text-yellow-300">
+						Express.js
+					</TypingAnimation>
+					<TypingAnimation delay={3450} className="text-gray-500">
+						&quot;
+					</TypingAnimation>
+					<TypingAnimation delay={3600} className="text-gray-500">
+						{"]"}
+					</TypingAnimation>
+					<TypingAnimation delay={3750} className="text-gray-500">
+						,
+					</TypingAnimation>
+				</div>
+				<div>
+					<TypingAnimation delay={3900}>hardWorker</TypingAnimation>
+					<TypingAnimation delay={4050} className="text-gray-500">
+						:
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={4200} className="text-orange-400">
+						true
+					</TypingAnimation>
+					<TypingAnimation delay={4350}>,</TypingAnimation>
+				</div>
+				<div>
+					<TypingAnimation delay={4500}>problemSolver</TypingAnimation>
+					<TypingAnimation delay={4650} className="text-gray-500">
+						:
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={4800} className="text-orange-400">
+						true
+					</TypingAnimation>
+					<TypingAnimation delay={4950}>,</TypingAnimation>
+				</div>
+				<div>
+					<TypingAnimation delay={5100} className="text-green-400">
+						hireable
+					</TypingAnimation>
+					<TypingAnimation delay={5250} className="text-gray-500">
+						:
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={5400} className="text-purple-400">
+						function
+					</TypingAnimation>
+					<TypingAnimation delay={5550} className="text-gray-500">
+						{"()"}
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={5700} className="text-gray-500">
+						{"{"}
+					</TypingAnimation>
+				</div>
+				<div className="pl-8">
+					<TypingAnimation delay={5850} className="text-purple-400">
+						return
+					</TypingAnimation>{" "}
+					<TypingAnimation delay={6000} className="text-gray-500">
+						(
+					</TypingAnimation>
+					<div className="pl-8">
+						<div>
+							<TypingAnimation delay={6150} className="text-sky-300">
+								this
+							</TypingAnimation>
+							<TypingAnimation delay={6300}>.</TypingAnimation>
+							<TypingAnimation delay={6450}>hardWorker</TypingAnimation>{" "}
+							<TypingAnimation delay={6600} className="text-pink-500">
+								&&
+							</TypingAnimation>
+						</div>
+						<div>
+							<TypingAnimation delay={6750} className="text-sky-300">
+								this
+							</TypingAnimation>
+							<TypingAnimation delay={6900}>.</TypingAnimation>
+							<TypingAnimation delay={7050}>problemSolver</TypingAnimation>{" "}
+							<TypingAnimation delay={7200} className="text-pink-500">
+								&&
+							</TypingAnimation>
+						</div>
+						<div>
+							<TypingAnimation delay={7350} className="text-sky-300">
+								this
+							</TypingAnimation>
+							<TypingAnimation delay={7500}>.</TypingAnimation>
+							<TypingAnimation delay={7650}>skills</TypingAnimation>
+							<TypingAnimation delay={7800}>.</TypingAnimation>
+							<TypingAnimation delay={7950} className="text-orange-300">
+								length
+							</TypingAnimation>{" "}
+							<TypingAnimation delay={8100} className="text-pink-500">
+								{">="}
+							</TypingAnimation>{" "}
+							<TypingAnimation delay={8250} className="text-orange-300">
+								3
+							</TypingAnimation>
+						</div>
+					</div>
+					<TypingAnimation delay={8550} as="p" className="text-gray-500">
+						);
+					</TypingAnimation>
+				</div>
+				<TypingAnimation delay={8700} className="text-gray-500">
+					{"},"}
+				</TypingAnimation>
+			</div>
+			<TypingAnimation delay={8850} className="text-gray-500">
+				{"};"}
+			</TypingAnimation>
+		</div>
 	);
 }

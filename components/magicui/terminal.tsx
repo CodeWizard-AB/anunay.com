@@ -83,7 +83,10 @@ export const TypingAnimation = ({
 	return (
 		<MotionComponent
 			ref={elementRef}
-			className={cn("text-base font-normal tracking-normal", className)}
+			className={cn(
+				"text-sm md:text-base font-normal tracking-normal",
+				className
+			)}
 			{...props}
 		>
 			{displayedText}

@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
 
 const interFont = Inter({ subsets: ["latin"] });
@@ -19,7 +19,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="dark">
-			<body className={cn(interFont.className, "container")}>
+			<body
+				className={cn(interFont.className, "container")}
+				data-new-gr-c-s-check-loaded="14.1226.0"
+				data-gr-ext-installed=""
+				cz-shortcut-listen="true"
+			>
 				<Header />
 				<main>{children}</main>
 				<Footer />

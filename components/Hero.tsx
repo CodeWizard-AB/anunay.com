@@ -20,7 +20,7 @@ const firaCode = Fira_Code({ subsets: ["latin"] });
 
 export default function Hero() {
 	return (
-		<section className="grid md:grid-cols-2 gap-10 py-32 items-center">
+		<section className="grid md:grid-cols-2 gap-10 py-32 items-center overflow-x-hidden">
 			<Spotlight
 				className="left-0 -top-10 md:-top-30 xl:-top-10"
 				fill="white"
@@ -107,7 +107,7 @@ export default function Hero() {
 					</Link>
 				</div>
 			</div>
-			<CardContainer className="h-full w-full relative overflow-hidden">
+			<CardContainer className="max-w-full h-full w-full relative overflow-hidden">
 				<motion.div
 					className="h-[535px] w-full rounded-md relative overflow-hidden"
 					initial={{ opacity: 0, scale: 0 }}

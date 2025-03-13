@@ -25,7 +25,7 @@ export default function RootLayout({
 				data-gr-ext-installed=""
 				cz-shortcut-listen="true"
 			>
-				<Header />
+				{/* <Header /> */}
 				<main>{children}</main>
 				<Footer />
 			</body>

@@ -12,14 +12,35 @@ import Profile from "@/assets/profile-1.webp";
 import { Fira_Code } from "next/font/google";
 import * as motion from "motion/react-client";
 import { CardContainer } from "./ui/3d-card";
+import { Spotlight } from "./ui/spotlight";
+import { GridPattern } from "./magicui/grid-pattern";
+import { Github } from "lucide-react";
 
 const firaCode = Fira_Code({ subsets: ["latin"] });
 
 export default function Hero() {
 	return (
-		<section className="grid md:grid-cols-2 gap-10 my-10 items-center">
-			<div className="space-y-10">
-				<div className="relative w-max overflow-hidden rounded-md">
+		<section className="grid md:grid-cols-2 gap-10 py-32 items-center">
+			<Spotlight
+				className="left-0 -top-10 md:-top-30 xl:-top-10"
+				fill="white"
+			/>
+			<GridPattern
+				width={50}
+				height={50}
+				strokeDasharray="5"
+				className={cn(
+					"[mask-image:radial-gradient(600px_circle_at_center,white,transparent)] opacity-50 lg:opacity-100"
+				)}
+			/>
+
+			<div className="space-y-10 flex flex-col items-center md:items-start">
+				<motion.div
+					initial={{ opacity: 0, y: -100 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8, ease: "easeInOut" }}
+					className="relative w-max overflow-hidden rounded-md"
+				>
 					<div
 						className={cn(
 							"group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-background dark:border-white/20 dark:bg-background"
@@ -35,43 +56,67 @@ export default function Hero() {
 							className="from-transparent via-primary to-transparent"
 						/>
 					</div>
-				</div>
+				</motion.div>
 
-				<div className="flex items-center gap-6">
-					<Image
-						src={Profile}
-						alt="Profile Photo"
-						className="rounded-lg w-48 aspect-square object-cover object-top"
-						placeholder="blur"
-						priority
-					/>
-					<h1 className="text-8xl font-bold bg-linear-to-br from-primary to-white bg-clip-text text-transparent pb-2">
+				<div className="flex items-center justify-center gap-6">
+					<motion.div
+						initial={{ opacity: 0, x: -100 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.8, ease: "easeInOut" }}
+						className="md:w-full h-full"
+					>
+						<Image
+							src={Profile}
+							alt="Profile Photo"
+							className="rounded-lg w-36 md:w-48 aspect-square object-cover object-top"
+							placeholder="blur"
+							priority
+						/>
+					</motion.div>
+					<motion.h1
+						initial={{ opacity: 0, x: 100 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.8, ease: "easeInOut" }}
+						className="text-6xl lg:text-8xl font-bold bg-linear-to-tl from-primary to-white bg-clip-text text-transparent pb-2 w-min"
+					>
 						Anunay Argha
-					</h1>
+					</motion.h1>
 				</div>
 
-				<div className="leading-loose tracking-wider">
+				<motion.div
+					className="leading-loose text-center md:text-left tracking-wider text-lg"
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8, ease: "easeInOut" }}
+				>
 					A Frontend-Focused, Full-Stack Ready - Passionate about transforming
 					visions into intuitive, meaningful, and unforgettable digital
 					experiences.
-				</div>
+				</motion.div>
 
-				<Link href="/" download>
-					<Button>
-						Download CV <Download />
-					</Button>
-				</Link>
+				<div className="flex items-center gap-6">
+					<Link href="/" download>
+						<Button>
+							Download CV <Download />
+						</Button>
+					</Link>
+					<Link href="https://github.com/CodeWizard-AB">
+						<Button variant="outline">
+							Github <Github />
+						</Button>
+					</Link>
+				</div>
 			</div>
-			<CardContainer className="h-full w-full">
+			<CardContainer className="h-full w-full relative overflow-hidden">
 				<motion.div
 					className="h-[535px] w-full rounded-md relative overflow-hidden"
-					initial={{ opacity: 0, scale: 0.5 }}
+					initial={{ opacity: 0, scale: 0 }}
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 0.5 }}
 				>
 					<BorderBeam
 						duration={8}
-						size={400}
+						size={500}
 						className="from-pink-500 via-primary to-transparent"
 					/>
 					<Terminal>
@@ -145,16 +190,29 @@ function TypedAnimation() {
 					<TypingAnimation delay={2850} className="text-gray-500">
 						&quot;
 					</TypingAnimation>
-					<TypingAnimation delay={3000} className="text-gray-500">
+					<TypingAnimation
+						delay={3000}
+						className="text-gray-500 lg:inline hidden"
+					>
 						,
-					</TypingAnimation>{" "}
-					<TypingAnimation delay={3150} className="text-gray-500">
+					</TypingAnimation>
+					<span className="hidden lg:inline"> </span>
+					<TypingAnimation
+						delay={3150}
+						className="text-gray-500 lg:inline hidden"
+					>
 						&quot;
 					</TypingAnimation>
-					<TypingAnimation delay={3300} className="text-yellow-300">
+					<TypingAnimation
+						delay={3300}
+						className="text-yellow-300 lg:inline hidden"
+					>
 						Express.js
 					</TypingAnimation>
-					<TypingAnimation delay={3450} className="text-gray-500">
+					<TypingAnimation
+						delay={3450}
+						className="text-gray-500 lg:inline hidden"
+					>
 						&quot;
 					</TypingAnimation>
 					<TypingAnimation delay={3600} className="text-gray-500">

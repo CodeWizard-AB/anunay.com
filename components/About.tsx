@@ -12,7 +12,7 @@ import MongoDB from "@/assets/icons/mongo.svg";
 import Python from "@/assets/icons/python.svg";
 import React from "@/assets/icons/react.svg";
 import Git from "@/assets/icons/git.svg";
-import Express from "@/assets/icons/express.svg";
+import Express from "@/assets/icons/expressjs.svg";
 import Next from "@/assets/icons/nextjs.svg";
 import { MagicCard } from "./magicui/magic-card";
 import { Marquee } from "./magicui/marquee";
@@ -31,9 +31,13 @@ export default function About() {
 				<SectionHeading>A short introduction about who am I</SectionHeading>
 			</div>
 
-			<div className="grid md:grid-cols-[40fr_60fr] items-center gap-10">
-				<figure className="border border-border p-8 rounded-lg">
-					<Image src={Profile} alt="Anunay Argha" className="rounded-lg" />
+			<div className="grid md:grid-cols-[40fr_60fr] gap-10">
+				<figure className="border border-border p-8 rounded-lg h-max">
+					<Image
+						src={Profile}
+						alt="Anunay Argha"
+						className="rounded-lg"
+					/>
 
 					<figcaption className="flex items-center mt-6 *:text-2xl gap-4">
 						{socials.map(({ href, icon }) => (
@@ -46,19 +50,20 @@ export default function About() {
 
 				{/* Right - Text Content */}
 				<div className="max-w-full overflow-hidden">
-					<h1 className="text-4xl font-bold">
-						I’m Anunay. I’m passionate about crafting exceptional websites. With
-						a blend of coding expertise, I create unique online experiences that
-						captivate users.
+					<h1 className="text-2xl text-center md:text-left lg:text-3xl leading-normal">
+						Hey, I&apos;m Anunay Argha – a web developer passionate about
+						crafting sleek, high-performing websites. Blending creativity with
+						technical expertise, I transform ideas into engaging digital
+						experiences.
 					</h1>
-					<p className="text-md text-gray-400 mt-6">
-						Looking for a top-notch web developer to revamp your hotel’s
-						website? With years of experience and a keen eye for design, I can
-						take your site to the next level, helping you attract more visitors
-						and boost your bookings.
+					<p className="text-md leading-relaxed text-gray-400 mt-6">
+						Self-taught and driven by curiosity, I refined my skills by learning
+						from experienced developers. Through hands-on projects, I&apos;ve
+						built a deep understanding of modern web technologies. Now, I help
+						businesses elevate their online presence and attract more visitors.
 					</p>
-					<div className="mt-6">
-						<Marquee pauseOnHover className="[--duration:20s]">
+					<div className="mt-6 [mask-image:linear-gradient(to_right,transparent,#030712_10%,#030712_90%,black,transparent)]">
+						<Marquee pauseOnHover className="[--duration:40s]">
 							{skills.map((skill) => (
 								<Card key={skill.name} src={skill.src} name={skill.name} />
 							))}
@@ -72,9 +77,9 @@ export default function About() {
 function Card({ src, name }: { src: string; name: string }) {
 	return (
 		<MagicCard gradientFrom="#FB64B6" gradientTo="#7C5DDD">
-			<div className="border-2 border-border rounded-md p-6 text-center space-y-4">
+			<div className="border-2 border-border rounded-md p-5 text-center">
 				<figure>
-					<Image src={src} alt={name} className="w-32 aspect-square" />
+					<Image src={src} alt={name} className="w-32 aspect-square mb-1" />
 					<figcaption>{name}</figcaption>
 				</figure>
 			</div>

@@ -151,6 +151,8 @@
 @theme {
 	--animate-spotlight: spotlight 2s ease 0.75s forwards;
 	--animate-gradient: gradient 8s linear infinite;
+	--animate-marquee: marquee var(--duration) linear infinite;
+	--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 
 	@keyframes spotlight {
 		0% {
@@ -164,8 +166,26 @@
 	}
 
 	@keyframes gradient {
-		to {
-			backgroundposition: var(--bg-size) 0;
+		100% {
+			background-position: var(--bg-size) 0;
+		}
+	}
+
+	@keyframes marquee {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(-100% - var(--gap)));
+		}
+	}
+
+	@keyframes marquee-vertical {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(calc(-100% - var(--gap)));
 		}
 	}
 }

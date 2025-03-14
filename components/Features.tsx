@@ -21,7 +21,7 @@ export default function Features() {
 				}}
 				className="mt-auto"
 			>
-				<SectionTitle>Build efficiently</SectionTitle>
+				<SectionTitle>Build features</SectionTitle>
 				<SectionHeading>
 					Everything you need to build your app
 				</SectionHeading>

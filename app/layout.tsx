@@ -20,13 +20,13 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="dark">
 			<body
-				className={cn(interFont.className, "container")}
+				className={cn(interFont.className)}
 				data-new-gr-c-s-check-loaded="14.1226.0"
 				data-gr-ext-installed=""
 				cz-shortcut-listen="true"
 			>
 				<Header />
-				<main>{children}</main>
+				<main className="container">{children}</main>
 				<Footer />
 			</body>
 		</html>

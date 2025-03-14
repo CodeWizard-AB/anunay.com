@@ -17,12 +17,6 @@ import Next from "@/assets/icons/nextjs.svg";
 import { MagicCard } from "./magicui/magic-card";
 import { Marquee } from "./magicui/marquee";
 
-const socials = [
-	{ icon: <FaGithub />, href: "https://github.com/CodeWizard-AB" },
-	{ icon: <FaLinkedin />, href: "https://linkedin.com/in/anunayargha" },
-	{ icon: <FaFacebook />, href: "https://www.facebook.com/anunay.argha" },
-];
-
 export default function About() {
 	return (
 		<section className="py-16">
@@ -33,11 +27,7 @@ export default function About() {
 
 			<div className="grid md:grid-cols-[40fr_60fr] gap-10">
 				<figure className="border border-border p-8 rounded-lg h-max">
-					<Image
-						src={Profile}
-						alt="Anunay Argha"
-						className="rounded-lg"
-					/>
+					<Image src={Profile} alt="Anunay Argha" className="rounded-lg" />
 
 					<figcaption className="flex items-center mt-6 *:text-2xl gap-4">
 						{socials.map(({ href, icon }) => (
@@ -98,4 +88,10 @@ const skills = [
 	{ name: "Git", src: Git },
 	{ name: "ExpressJs", src: Express },
 	{ name: "NextJs", src: Next },
+];
+
+const socials = [
+	{ icon: <FaGithub />, href: "https://github.com/CodeWizard-AB" },
+	{ icon: <FaLinkedin />, href: "https://linkedin.com/in/anunayargha" },
+	{ icon: <FaFacebook />, href: "https://www.facebook.com/anunay.argha" },
 ];

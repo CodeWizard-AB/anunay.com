@@ -27,7 +27,12 @@ export default function About() {
 
 			<div className="grid md:grid-cols-[40fr_60fr] gap-10">
 				<figure className="border border-border p-8 rounded-lg h-max">
-					<Image src={Profile} alt="Anunay Argha" className="rounded-lg" />
+					<Image
+						src={Profile}
+						alt="Anunay Argha"
+						className="rounded-lg"
+						placeholder="blur"
+					/>
 
 					<figcaption className="flex items-center mt-6 *:text-2xl gap-4">
 						{socials.map(({ href, icon }) => (

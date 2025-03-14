@@ -1,5 +1,7 @@
 "use client";
 
+import { Mail, MapPinHouse, PhoneCall, SendHorizontal } from "lucide-react";
+import Profile from "@/assets/profile-1.webp";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -16,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
+import Image from "next/image";
 
 export default function Contact() {
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -23,11 +26,11 @@ export default function Contact() {
 		defaultValues: {
 			firstName: "",
 			lastName: "",
+			email: "",
 			phone: "",
 			budget: "",
-			email: "",
-			message: "",
 			websiteType: "",
+			message: "",
 		},
 	});
 
@@ -42,11 +45,11 @@ export default function Contact() {
 				<SectionHeading>Let’s talk about your project</SectionHeading>
 			</div>
 
-			<div className="grid md:grid-cols-[60fr_40fr] gap-10 mt-16">
+			<div className="grid md:grid-cols-[60fr_40fr] gap-20 mt-20">
 				<Form {...form}>
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
-						className="space-y-8 grid grid-cols-2 gap-x-6"
+						className="space-y-8 grid md:grid-cols-2 gap-x-6"
 					>
 						{/* First Name */}
 						<FormField
@@ -161,7 +164,7 @@ export default function Contact() {
 										<Textarea
 											placeholder="Tell me about your project"
 											{...field}
-											className="mt-3 col-span-2"
+											className="mt-3 md:col-span-2"
 										/>
 									</FormControl>
 									<FormMessage />
@@ -170,11 +173,39 @@ export default function Contact() {
 						/>
 
 						{/* Submit Button */}
-						<Button type="submit" className="col-span-2 w-max">
-							Submit
+						<Button type="submit" className="md:col-span-2 w-max">
+							Submit <SendHorizontal />
 						</Button>
 					</form>
 				</Form>
+				<div>
+					<div className="flex gap-4 items-center">
+						<Image
+							placeholder="blur"
+							className="w-16 h-16 rounded-full object-cover object-top"
+							src={Profile}
+							alt="Contact profile image"
+						/>
+						<div>
+							<p className="text-lg">Anunay Argha</p>
+							<p className="text-gray-500 text-sm">Web Developer</p>
+						</div>
+					</div>
+					<blockquote className="italic mt-6 leading-loose text-gray-400">
+						&quot;A great website isn’t just about design or code—it’s about
+						creating an experience that connects, engages, and delivers results.
+						Let’s collaborate to turn your vision into reality and build
+						something truly remarkable.&quot;
+					</blockquote>
+					<div className="mt-10 space-y-4">
+						{contacts.map(({ icon, value }) => (
+							<div className="flex gap-4 items-center" key={value}>	
+								{icon}
+								<p className="text-gray-300">{value}</p>
+							</div>
+						))}
+					</div>
+				</div>
 			</div>
 		</section>
 	);
@@ -207,3 +238,9 @@ export const formSchema = z.object({
 		.min(10, "Message must be at least 10 characters")
 		.max(1000, "Message must be at most 1000 characters"),
 });
+
+const contacts = [
+	{ icon: <Mail />, value: "anunayargha@gmail.com" },
+	{ icon: <PhoneCall />, value: "+8801869322827" },
+	{ icon: <MapPinHouse />, value: "Dhaka, Bangladesh" },
+];

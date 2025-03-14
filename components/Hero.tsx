@@ -109,7 +109,7 @@ export default function Hero() {
 			</div>
 			<CardContainer className="max-w-full  h-full w-full relative overflow-hidden">
 				<motion.div
-					className="h-[535px] w-[400px] md:w-full rounded-md relative overflow-hidden"
+					className="h-[535px] w-[360px] sm:w-full rounded-md relative overflow-hidden"
 					initial={{ opacity: 0, scale: 0 }}
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 0.5 }}

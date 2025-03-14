@@ -150,6 +150,7 @@
 
 @theme {
 	--animate-spotlight: spotlight 2s ease 0.75s forwards;
+	--animate-gradient: gradient 8s linear infinite;
 
 	@keyframes spotlight {
 		0% {
@@ -159,6 +160,12 @@
 		100% {
 			opacity: 1;
 			transform: translate(-50%, -40%) scale(1);
+		}
+	}
+
+	@keyframes gradient {
+		to {
+			backgroundposition: var(--bg-size) 0;
 		}
 	}
 }

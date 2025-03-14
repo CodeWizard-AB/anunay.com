@@ -5,6 +5,9 @@ import Image from "next/image";
 import Code from "@/assets/image.png";
 import * as motion from "motion/react-client";
 
+import SectionTitle from "./ui/section-title";
+import SectionHeading from "./ui/section-heading";
+
 export default function Features() {
 	return (
 		<div className="my-24">
@@ -18,12 +21,10 @@ export default function Features() {
 				}}
 				className="mt-auto"
 			>
-				<h2 className="text-center text-base font-semibold text-pink-500">
-					Deploy faster
-				</h2>
-				<p className="mx-auto mt-2 max-w-xl text-center text-4xl font-semibold tracking-tight text-balance sm:text-6xl bg-linear-to-br text-transparent from-primary to-white bg-clip-text">
+				<SectionTitle>Build efficiently</SectionTitle>
+				<SectionHeading>
 					Everything you need to build your app
-				</p>
+				</SectionHeading>
 				<div className="mt-10 grid gap-4 sm:mt-16 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
 					<div className="relative md:row-span-2">
 						<div className="absolute inset-px rounded-lg lg:rounded-l-[2rem]"></div>

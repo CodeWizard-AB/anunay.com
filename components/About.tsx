@@ -1,36 +1,51 @@
 import Image from "next/image";
-import Profile from "@/assets/profile-2.webp";
+import Profile from "@/assets/profile-1.webp";
+import SectionHeading from "./ui/section-heading";
+import SectionTitle from "./ui/section-title";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 
-export default function HeroSection() {
+const socials = [
+	{ icon: <FaGithub />, href: "https://github.com/CodeWizard-AB" },
+	{ icon: <FaLinkedin />, href: "https://linkedin.com/in/anunayargha" },
+	{ icon: <FaFacebook />, href: "https://www.facebook.com/anunay.argha" },
+];
+
+export default function About() {
 	return (
-		<section className="py-16 px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center gap-10">
-			<div className="relative">
-				<div className="absolute -left-5 -top-5 w-full h-full border-2 border-gray-500 rounded-lg"></div>
-				<Image
-					src={Profile}
-					alt="John Smith"
-					width={400}
-					height={400}
-					className="rounded-lg relative z-10"
-				/>
+		<section className="py-16">
+			<div className="mb-20">
+				<SectionTitle>About Myself</SectionTitle>
+				<SectionHeading>A short introduction about who am I</SectionHeading>
 			</div>
 
-			{/* Right - Text Content */}
-			<div className="max-w-xl">
-				<h1 className="text-4xl font-bold">
-					I’m <span className="text-blue-400">John Smith</span>. I’m passionate
-					about crafting exceptional websites.
-				</h1>
-				<p className="text-lg text-gray-300 mt-4">
-					With a blend of design skills and coding expertise, I create unique
-					online experiences that captivate users.
-				</p>
-				<p className="text-md text-gray-400 mt-6">
-					Looking for a top-notch web developer to revamp your hotel’s website?
-					With years of experience and a keen eye for design, I can take your
-					site to the next level, helping you attract more visitors and boost
-					your bookings.
-				</p>
+			<div className="grid md:grid-cols-[40fr_60fr] items-center gap-10">
+				<figure className="border border-border p-8 rounded-lg">
+					<Image src={Profile} alt="Anunay Argha" className="rounded-lg" />
+
+					<figcaption className="flex justify-end items-center mt-6 *:text-2xl gap-4">
+						{socials.map(({ href, icon }) => (
+							<Link key={href} href={href} target="_blank">
+								{icon}
+							</Link>
+						))}
+					</figcaption>
+				</figure>
+
+				{/* Right - Text Content */}
+				<div>
+					<h1 className="text-4xl font-bold">
+						I’m Anunay. I’m passionate about crafting exceptional websites. With
+						a blend of coding expertise, I create unique online experiences that
+						captivate users.
+					</h1>
+					<p className="text-md text-gray-400 mt-6">
+						Looking for a top-notch web developer to revamp your hotel’s
+						website? With years of experience and a keen eye for design, I can
+						take your site to the next level, helping you attract more visitors
+						and boost your bookings.
+					</p>
+				</div>
 			</div>
 		</section>
 	);

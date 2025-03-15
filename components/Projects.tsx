@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Projects() {
 	return (
-		<section className="mb-60" id="projects">
+		<section className="mb-48 md:mb-60" id="projects">
 			<div>
 				<SectionTitle>Featured Projects</SectionTitle>
 				<SectionHeading>Turning ideas into web solutions.</SectionHeading>

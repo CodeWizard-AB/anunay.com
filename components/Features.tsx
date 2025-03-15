@@ -11,7 +11,7 @@ import { GlowingEffect } from "./ui/glowing-effect";
 
 export default function Features() {
 	return (
-		<section className="my-24" id="features">
+		<section className="mb-24" id="features">
 			<motion.div
 				initial={{ opacity: 0.5, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}

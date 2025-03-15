@@ -21,7 +21,7 @@ import { TextReveal } from "./magicui/text-reveal";
 
 export default function About() {
 	return (
-		<section className="py-16" id="about">
+		<section className="mb-24" id="about">
 			<div className="mb-20">
 				<SectionTitle>About myself</SectionTitle>
 				<SectionHeading>A short introduction about who am I</SectionHeading>

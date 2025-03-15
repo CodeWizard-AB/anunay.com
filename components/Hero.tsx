@@ -20,7 +20,7 @@ const firaCode = Fira_Code({ subsets: ["latin"] });
 
 export default function Hero() {
 	return (
-		<section className="grid md:grid-cols-2 gap-10 my-32 items-center">
+		<section className="grid md:grid-cols-2 gap-10 mt-32 mb-24 md:mb-32 items-center">
 			<Spotlight
 				className="left-0 -top-10 md:-top-30 xl:-top-10"
 				fill="white"

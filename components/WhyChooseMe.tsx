@@ -73,7 +73,7 @@ const Feature = ({
 
 const features = [
 	{
-		title: "Passionate About Learning",
+		title: "Learning Mindsetup",
 		description:
 			"I stay updated with the latest trends to offer innovative solutions.",
 		icon: <BicepsFlexed />,
@@ -85,7 +85,7 @@ const features = [
 		icon: <SearchCode />,
 	},
 	{
-		title: "Strong Problem-Solving Skills",
+		title: "Problem-Solving Skills",
 		description:
 			"I approach challenges creatively, finding effective solutions quickly.",
 		icon: <Puzzle />,

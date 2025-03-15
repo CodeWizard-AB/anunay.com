@@ -1,6 +1,12 @@
 "use client";
 
-import { Mail, MapPinHouse, PhoneCall, SendHorizontal } from "lucide-react";
+import {
+	Mail,
+	Loader2,
+	MapPinHouse,
+	PhoneCall,
+	SendHorizontal,
+} from "lucide-react";
 import Profile from "@/assets/profile-1.webp";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,6 +27,9 @@ import { Textarea } from "./ui/textarea";
 import Image from "next/image";
 import { GridPattern } from "./magicui/grid-pattern";
 import { cn } from "@/lib/utils";
+import { sendContactEmail } from "@/actions/contact";
+import { toast } from "sonner";
+import { formSchema } from "@/validations/contactSchema";
 
 export default function Contact() {
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -35,9 +44,21 @@ export default function Contact() {
 			message: "",
 		},
 	});
+	const {
+		reset,
+		formState: { isSubmitting },
+	} = form;
 
-	function onSubmit(values: z.infer<typeof formSchema>) {
-		console.log(values);
+	async function onSubmit(data: z.infer<typeof formSchema>) {
+		const result = await sendContactEmail(data);
+		if (result?.success) {
+			reset();
+			toast.success(result.success);
+		}
+
+		if (result?.error) {
+			toast.error(result.error);
+		}
 	}
 
 	return (
@@ -184,8 +205,21 @@ export default function Contact() {
 						/>
 
 						{/* Submit Button */}
-						<Button type="submit" className="md:col-span-2 w-max">
-							Submit <SendHorizontal />
+						<Button
+							type="submit"
+							className="md:col-span-2 w-max"
+							disabled={isSubmitting}
+						>
+							{isSubmitting ? (
+								<>
+									Please Wait
+									<Loader2 className="animate-spin" />
+								</>
+							) : (
+								<>
+									Submit <SendHorizontal />
+								</>
+							)}
 						</Button>
 					</form>
 				</Form>
@@ -225,36 +259,10 @@ export default function Contact() {
 	);
 }
 
-export const formSchema = z.object({
-	firstName: z
-		.string()
-		.min(2, "First name must be at least 2 characters")
-		.max(50, "First name must be at most 50 characters"),
-
-	lastName: z
-		.string()
-		.min(2, "Last name must be at least 2 characters")
-		.max(50, "Last name must be at most 50 characters"),
-
-	email: z.string().email("Invalid email address"),
-
-	phone: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number"),
-
-	budget: z.string().regex(/^\d+$/, "Budget must be a valid number"),
-
-	websiteType: z
-		.string()
-		.min(3, "Website type must be at least 3 characters")
-		.max(100, "Website type must be at most 100 characters"),
-
-	message: z
-		.string()
-		.min(10, "Message must be at least 10 characters")
-		.max(1000, "Message must be at most 1000 characters"),
-});
-
 const contacts = [
 	{ icon: <Mail />, value: "anunayargha@gmail.com" },
 	{ icon: <PhoneCall />, value: "+8801869322827" },
 	{ icon: <MapPinHouse />, value: "Dhaka, Bangladesh" },
 ];
+
+

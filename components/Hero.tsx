@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button } from "./ui/button";
 import { Terminal, TypingAnimation } from "./magicui/terminal";
@@ -5,16 +7,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedShinyText } from "./magicui/animated-shiny-text";
 import { cn } from "@/lib/utils";
-import { Code } from "lucide-react";
+import { CalendarDays, Code } from "lucide-react";
 import { BorderBeam } from "./magicui/border-beam";
-import { Download } from "lucide-react";
 import Profile from "@/assets/profile-1.webp";
 import { Fira_Code } from "next/font/google";
 import * as motion from "motion/react-client";
 import { CardContainer } from "./ui/3d-card";
 import { Spotlight } from "./ui/spotlight";
 import { GridPattern } from "./magicui/grid-pattern";
-import { Github } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 const firaCode = Fira_Code({ subsets: ["latin"] });
 
@@ -95,14 +96,14 @@ export default function Hero() {
 				</motion.div>
 
 				<div className="flex items-center gap-6">
-					<Link href="/" download>
-						<Button>
-							Download CV <Download />
+					<Link href="https://calendly.com/adobex092" target="_blank">
+						<Button size="lg">
+							Book a Meeting <CalendarDays />
 						</Button>
 					</Link>
-					<Link href="https://github.com/CodeWizard-AB">
-						<Button variant="outline">
-							Github <Github />
+					<Link href="https://github.com/CodeWizard-AB" target="_blank">
+						<Button variant="outline" size="lg">
+							Github <FaGithub />
 						</Button>
 					</Link>
 				</div>

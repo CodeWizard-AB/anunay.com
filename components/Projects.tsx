@@ -1,8 +1,10 @@
 import Image from "next/image";
 import SectionHeading from "./ui/section-heading";
 import SectionTitle from "./ui/section-title";
-import Project from "@/assets/image.png";
 import { Tabs } from "./ui/tabs";
+import Project1 from "@/assets/projects/project1.png";
+import Project2 from "@/assets/projects/project2.png";
+import Link from "next/link";
 
 export default function Projects() {
 	return (
@@ -20,35 +22,52 @@ export default function Projects() {
 	);
 }
 
-function Card({ name }: { name: string }) {
+function Card({
+	name,
+	src,
+	href,
+}: {
+	name: string;
+	src: string;
+	href: string;
+}) {
 	return (
-		<div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-primary to-chart-5">
+		<div className="w-full overflow-hidden relative h-full rounded-lg p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-primary to-chart-5">
 			<p>{name}</p>
-			<Image
-				src={Project}
-				alt={name + " feature project image"}
-				width="1000"
-				height="1000"
-				className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
-			/>
+			<Link href={href} target="_blank">
+				<Image
+					src={src}
+					alt={name + " feature project image"}
+					width="1000"
+					height="1000"
+					className="object-cover object-left-top h-[85%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
+				/>
+			</Link>
 		</div>
 	);
 }
 
 const tabs = [
 	{
-		title: "Product",
-		value: "product",
-		content: <Card name="Product tab" />,
+		title: "Saas Landing Page",
+		value: "saas-landing-page",
+		content: (
+			<Card
+				name="Saas Landing Page"
+				src={Project1.src}
+				href="https://saas-landing-page-anunay.vercel.app"
+			/>
+		),
 	},
 	{
-		title: "Services",
-		value: "services",
-		content: <Card name="Services tab" />,
-	},
-	{
-		title: "Random",
-		value: "random",
-		content: <Card name="Random tab" />,
+		title: "Food Landing Page",
+		value: "food-landing-page",
+		content: (
+			<Card
+				name="Food Landing Page"
+				src={Project2.src}
+				href="https://onmifood-ab.netlify.app"
+			/>
+		),
 	},
 ];

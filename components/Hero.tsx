@@ -39,7 +39,7 @@ export default function Hero() {
 				<motion.div
 					initial={{ opacity: 0, y: -100 }}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, ease: "easeInOut" }}
+					transition={{ duration: 0.5, ease: "easeInOut" }}
 					className="relative w-max overflow-hidden rounded-md"
 				>
 					<div
@@ -63,7 +63,7 @@ export default function Hero() {
 					<motion.div
 						initial={{ opacity: 0, x: -100 }}
 						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.8, ease: "easeInOut" }}
+						transition={{ duration: 0.5, ease: "easeInOut" }}
 						className="md:w-full h-full"
 					>
 						<Image
@@ -80,7 +80,7 @@ export default function Hero() {
 					<motion.h1
 						initial={{ opacity: 0, x: 100 }}
 						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.8, ease: "easeInOut" }}
+						transition={{ duration: 0.5, ease: "easeInOut" }}
 						className="text-6xl lg:text-8xl font-bold bg-linear-to-tl from-primary to-white bg-clip-text text-transparent pb-2 w-min"
 					>
 						Anunay Argha
@@ -89,16 +89,21 @@ export default function Hero() {
 
 				<motion.div
 					className="leading-loose text-center md:text-left tracking-wider text-lg"
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, ease: "easeInOut" }}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.5, ease: "easeInOut" }}
 				>
 					A Frontend-Focused, Full-Stack Ready - Passionate about transforming
 					visions into intuitive, meaningful, and unforgettable digital
 					experiences.
 				</motion.div>
 
-				<div className="flex items-center gap-6">
+				<motion.div
+					className="flex items-center gap-6"
+					initial={{ opacity: 0, y: 10 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, ease: "easeInOut" }}
+				>
 					<Link href="https://calendly.com/adobex092" target="_blank">
 						<Button size="lg">
 							Book a Meeting <CalendarDays />
@@ -109,21 +114,21 @@ export default function Hero() {
 							Github <FaGithub />
 						</Button>
 					</Link>
-				</div>
+				</motion.div>
 			</div>
 			<CardContainer className="max-w-full h-full w-full relative overflow-hidden">
 				<motion.div
 					className="h-[535px] w-full max-w-[360px] sm:max-w-full rounded-md relative overflow-hidden"
 					initial={{ opacity: 0, scale: 0 }}
 					animate={{ opacity: 1, scale: 1 }}
-					transition={{ duration: 0.5 }}
+					transition={{ duration: 0.5, ease: "easeInOut" }}
 				>
 					<BorderBeam
 						duration={8}
 						size={500}
 						className="from-pink-500 via-primary to-transparent"
 					/>
-					<Terminal>
+					<Terminal className="w-full max-w-full">
 						<TypedAnimation />
 					</Terminal>
 				</motion.div>

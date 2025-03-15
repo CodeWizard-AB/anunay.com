@@ -45,11 +45,11 @@ export default function Contact() {
 				<SectionHeading>Let’s talk about your project</SectionHeading>
 			</div>
 
-			<div className="grid md:grid-cols-[60fr_40fr] gap-20 mt-20">
+			<div className="grid md:grid-cols-[60fr_40fr] gap-10 lg:gap-20 mt-20">
 				<Form {...form}>
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
-						className="space-y-8 grid md:grid-cols-2 gap-x-6"
+						className="grid md:grid-cols-2 gap-6"
 					>
 						{/* First Name */}
 						<FormField
@@ -90,7 +90,7 @@ export default function Contact() {
 									<FormLabel>Email</FormLabel>
 									<FormControl>
 										<Input
-											placeholder="you@example.com"
+											placeholder="you@gmail.com"
 											{...field}
 											className="mt-3"
 										/>
@@ -109,7 +109,7 @@ export default function Contact() {
 									<FormLabel>Phone</FormLabel>
 									<FormControl>
 										<Input
-											placeholder="123-456-7890"
+											placeholder="+123-456-7890"
 											{...field}
 											className="mt-3"
 										/>
@@ -125,7 +125,7 @@ export default function Contact() {
 							name="budget"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Budget</FormLabel>
+									<FormLabel>Budget ($)</FormLabel>
 									<FormControl>
 										<Input placeholder="$5000" {...field} className="mt-3" />
 									</FormControl>
@@ -140,7 +140,7 @@ export default function Contact() {
 							name="websiteType"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Website Type</FormLabel>
+									<FormLabel>Website (Type)</FormLabel>
 									<FormControl>
 										<Input
 											placeholder="E-commerce, Portfolio, Blog"
@@ -158,13 +158,14 @@ export default function Contact() {
 							control={form.control}
 							name="message"
 							render={({ field }) => (
-								<FormItem>
+								<FormItem className="md:col-span-2">
 									<FormLabel>Message</FormLabel>
 									<FormControl>
 										<Textarea
 											placeholder="Tell me about your project"
 											{...field}
-											className="mt-3 md:col-span-2"
+											className="mt-3"
+											rows={5}
 										/>
 									</FormControl>
 									<FormMessage />
@@ -199,9 +200,12 @@ export default function Contact() {
 					</blockquote>
 					<div className="mt-10 space-y-4">
 						{contacts.map(({ icon, value }) => (
-							<div className="flex gap-4 items-center" key={value}>	
+							<div
+								className="flex gap-4 items-center text-gray-300"
+								key={value}
+							>
 								{icon}
-								<p className="text-gray-300">{value}</p>
+								<p>{value}</p>
 							</div>
 						))}
 					</div>

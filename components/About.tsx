@@ -16,6 +16,8 @@ import Express from "@/assets/icons/expressjs.svg";
 import Next from "@/assets/icons/nextjs.svg";
 import { MagicCard } from "./magicui/magic-card";
 import { Marquee } from "./magicui/marquee";
+import { GlowingEffect } from "./ui/glowing-effect";
+import { TextReveal } from "./magicui/text-reveal";
 
 export default function About() {
 	return (
@@ -45,11 +47,13 @@ export default function About() {
 
 				{/* Right - Text Content */}
 				<div className="max-w-full overflow-hidden">
-					<h1 className="text-2xl text-center md:text-left lg:text-3xl leading-normal">
-						Hey, I&apos;m Anunay Argha – a web developer passionate about
-						crafting sleek, high-performing websites. Blending creativity with
-						technical expertise, I transform ideas into engaging digital
-						experiences.
+					<h1>
+						<TextReveal>
+							Hey 👋, I&apos;m Anunay Argha – a web developer passionate about
+							crafting sleek, high-performing websites. Blending creativity with
+							technical expertise, I transform ideas into engaging digital
+							experiences.
+						</TextReveal>
 					</h1>
 					<p className="text-md leading-relaxed text-gray-400 mt-6">
 						Self-taught and driven by curiosity, I refined my skills by learning
@@ -71,14 +75,22 @@ export default function About() {
 }
 function Card({ src, name }: { src: string; name: string }) {
 	return (
-		<MagicCard gradientFrom="#FB64B6" gradientTo="#7C5DDD">
-			<div className="border-2 border-border rounded-md p-5 text-center">
-				<figure>
-					<Image src={src} alt={name} className="w-32 aspect-square mb-1" />
-					<figcaption>{name}</figcaption>
-				</figure>
-			</div>
-		</MagicCard>
+		<div className="relative border-2 border-border rounded-md">
+			<GlowingEffect
+				spread={30}
+				disabled={false}
+				proximity={64}
+				inactiveZone={0.01}
+			/>
+			<MagicCard gradientFrom="#FB64B6" gradientTo="#7C5DDD">
+				<div className="p-5 text-center">
+					<figure>
+						<Image src={src} alt={name} className="w-32 aspect-square mb-1" />
+						<figcaption>{name}</figcaption>
+					</figure>
+				</div>
+			</MagicCard>
+		</div>
 	);
 }
 

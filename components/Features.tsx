@@ -7,6 +7,7 @@ import * as motion from "motion/react-client";
 
 import SectionTitle from "./ui/section-title";
 import SectionHeading from "./ui/section-heading";
+import { GlowingEffect } from "./ui/glowing-effect";
 
 export default function Features() {
 	return (
@@ -22,11 +23,17 @@ export default function Features() {
 				className="mt-auto"
 			>
 				<SectionTitle>Build features</SectionTitle>
-				<SectionHeading>
-					Everything you need to build your app
-				</SectionHeading>
+				<SectionHeading>Everything you need to build your app</SectionHeading>
 				<div className="mt-10 grid gap-4 sm:mt-16 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
 					<div className="relative md:row-span-2">
+						<GlowingEffect
+							spread={40}
+							glow={true}
+							disabled={false}
+							proximity={64}
+							inactiveZone={0.01}
+							className="rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]"
+						/>
 						<div className="absolute inset-px rounded-lg lg:rounded-l-[2rem]"></div>
 						<div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)] border">
 							<div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
@@ -52,6 +59,14 @@ export default function Features() {
 					</div>
 
 					<div className="relative max-lg:row-start-1">
+						<GlowingEffect
+							spread={40}
+							glow={true}
+							disabled={false}
+							proximity={64}
+							inactiveZone={0.01}
+							className="rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+						/>
 						<div className="absolute inset-px rounded-lg max-lg:rounded-t-[2rem]"></div>
 						<div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] border border-border">
 							<div className="px-8 pt-8 sm:px-10 sm:pt-10">
@@ -74,7 +89,16 @@ export default function Features() {
 						</div>
 						<div className="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 max-lg:rounded-t-[2rem]"></div>
 					</div>
+
 					<div className="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2 md:row-start-2">
+						<GlowingEffect
+							spread={40}
+							glow={true}
+							disabled={false}
+							proximity={64}
+							inactiveZone={0.01}
+							className="rounded-[calc(var(--radius-lg)+1px)]"
+						/>
 						<div className="absolute inset-px rounded-l"></div>
 						<div className="relative flex h-full flex-col overflow-hidden border border-border rounded-[calc(var(--radius-lg)+1px)]">
 							<div className="px-8 pt-8 sm:px-10 sm:pt-10">
@@ -99,6 +123,14 @@ export default function Features() {
 					</div>
 
 					<div className="relative md:col-span-2 lg:col-span-1 lg:row-span-2">
+						<GlowingEffect
+							spread={40}
+							glow={true}
+							disabled={false}
+							proximity={64}
+							inactiveZone={0.01}
+							className="rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]"
+						/>
 						<div className="absolute inset-px rounded-lg max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
 						<div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] border border-border max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
 							<div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">

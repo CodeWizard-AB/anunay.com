@@ -114,7 +114,7 @@ export const Terminal = ({ children, className }: TerminalProps) => {
 					<div className="w-3 aspect-square rounded-full bg-green-500"></div>
 				</div>
 			</div>
-			<pre className="p-6 sm:p-8">
+			<pre className="py-8 pl-6 pr-4 sm:p-8">
 				<code className="grid gap-y-1 overflow-auto">{children}</code>
 			</pre>
 		</div>

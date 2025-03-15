@@ -69,9 +69,12 @@ export default function Hero() {
 						<Image
 							src={Profile}
 							alt="Profile Photo"
-							className="rounded-lg w-36 md:w-48 aspect-square object-cover object-top"
+							className="rounded-lg aspect-square object-cover object-top"
 							placeholder="blur"
 							priority
+							sizes="(max-width: 640px) 120px, (max-width: 1024px) 192px, 256px"
+							width={256}
+							height={256}
 						/>
 					</motion.div>
 					<motion.h1

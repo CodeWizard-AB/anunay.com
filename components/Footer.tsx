@@ -10,8 +10,8 @@ export default function Footer() {
 				</p>
 
 				<div className="flex justify-center space-x-4 text-xl text-gray-200">
-					{socials.map(({ href, icon }) => (
-						<Link key={href} href={href} target="_blank">
+					{socials.map(({ href, icon, label }) => (
+						<Link key={href} href={href} target="_blank" aria-label={label}>
 							{icon}
 						</Link>
 					))}
@@ -22,7 +22,19 @@ export default function Footer() {
 }
 
 const socials = [
-	{ icon: <FaGithub />, href: "https://github.com/CodeWizard-AB" },
-	{ icon: <FaLinkedin />, href: "https://linkedin.com/in/anunayargha" },
-	{ icon: <FaFacebook />, href: "https://www.facebook.com/anunay.argha" },
+	{
+		icon: <FaGithub />,
+		href: "https://github.com/CodeWizard-AB",
+		label: "Github",
+	},
+	{
+		icon: <FaLinkedin />,
+		href: "https://linkedin.com/in/anunayargha",
+		label: "Linkedin",
+	},
+	{
+		icon: <FaFacebook />,
+		href: "https://www.facebook.com/anunay.argha",
+		label: "Facebook",
+	},
 ];

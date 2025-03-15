@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 
-const interFont = Inter({ subsets: ["latin"] , preload: true});
+const interFont = Inter({ subsets: ["latin"], preload: true });
 
 export const metadata: Metadata = {
 	title: "Anunay Argha - Web Developer",

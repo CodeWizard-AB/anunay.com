@@ -111,9 +111,9 @@ export default function Hero() {
 					</Link>
 				</div>
 			</div>
-			<CardContainer className="max-w-full  h-full w-full relative overflow-hidden">
+			<CardContainer className="max-w-full h-full w-full relative overflow-hidden">
 				<motion.div
-					className="h-[535px] w-[360px] sm:w-full rounded-md relative overflow-hidden"
+					className="h-[535px] w-full max-w-[360px] sm:max-w-full rounded-md relative overflow-hidden"
 					initial={{ opacity: 0, scale: 0 }}
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 0.5 }}
@@ -146,7 +146,7 @@ function TypedAnimation() {
 				</TypingAnimation>
 			</div>
 
-			<div className="pl-8">
+			<div className="pl-4 sm:pl-8">
 				<div>
 					<TypingAnimation delay={600}>name</TypingAnimation>
 					<TypingAnimation delay={750} className="text-gray-500">
@@ -263,14 +263,14 @@ function TypedAnimation() {
 						{"{"}
 					</TypingAnimation>
 				</div>
-				<div className="pl-8">
+				<div className="pl-4 sm:pl-8">
 					<TypingAnimation delay={5850} className="text-purple-400">
 						return
 					</TypingAnimation>{" "}
 					<TypingAnimation delay={6000} className="text-gray-500">
 						(
 					</TypingAnimation>
-					<div className="pl-8">
+					<div className="pl-4 sm:pl-8">
 						<div>
 							<TypingAnimation delay={6150} className="text-sky-300">
 								this

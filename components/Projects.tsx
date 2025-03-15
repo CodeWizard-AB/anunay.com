@@ -6,7 +6,7 @@ import { Tabs } from "./ui/tabs";
 
 export default function Projects() {
 	return (
-		<section className="mb-60">
+		<section className="mb-60" id="projects">
 			<div>
 				<SectionTitle>Featured Projects</SectionTitle>
 				<SectionHeading>Turning ideas into web solutions.</SectionHeading>
@@ -20,47 +20,35 @@ export default function Projects() {
 	);
 }
 
+function Card({ name }: { name: string }) {
+	return (
+		<div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-primary to-chart-5">
+			<p>{name}</p>
+			<Image
+				src={Project}
+				alt={name + " feature project image"}
+				width="1000"
+				height="1000"
+				className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
+			/>
+		</div>
+	);
+}
+
 const tabs = [
 	{
 		title: "Product",
 		value: "product",
-		content: (
-			<div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-				<p>Product Tab</p>
-				<DummyContent />
-			</div>
-		),
+		content: <Card name="Product tab" />,
 	},
 	{
 		title: "Services",
 		value: "services",
-		content: (
-			<div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-				<p>Services tab</p>
-				<DummyContent />
-			</div>
-		),
+		content: <Card name="Services tab" />,
 	},
 	{
 		title: "Random",
 		value: "random",
-		content: (
-			<div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-primary to-chart-5">
-				<p>Random tab</p>
-				<DummyContent />
-			</div>
-		),
+		content: <Card name="Random tab" />,
 	},
 ];
-
-function DummyContent() {
-	return (
-		<Image
-			src={Project}
-			alt="dummy image"
-			width="1000"
-			height="1000"
-			className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
-		/>
-	);
-}

@@ -11,7 +11,7 @@ import { GlowingEffect } from "./ui/glowing-effect";
 
 export default function Features() {
 	return (
-		<div className="my-24">
+		<section className="my-24" id="features">
 			<motion.div
 				initial={{ opacity: 0.5, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export default function Features() {
 				}}
 				className="mt-auto"
 			>
-				<SectionTitle>Build features</SectionTitle>
+				<SectionTitle>Quality features</SectionTitle>
 				<SectionHeading>Everything you need to build your app</SectionHeading>
 				<div className="mt-10 grid gap-4 sm:mt-16 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
 					<div className="relative md:row-span-2">
@@ -156,6 +156,6 @@ export default function Features() {
 					</div>
 				</div>
 			</motion.div>
-		</div>
+		</section>
 	);
 }

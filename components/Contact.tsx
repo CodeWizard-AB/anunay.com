@@ -19,6 +19,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
 import Image from "next/image";
+import { GridPattern } from "./magicui/grid-pattern";
+import { cn } from "@/lib/utils";
 
 export default function Contact() {
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -39,7 +41,15 @@ export default function Contact() {
 	}
 
 	return (
-		<section className="mb-24">
+		<section className="mb-24 relative" id="contact">
+			<GridPattern
+				width={100}
+				height={100}
+				className={cn(
+					"[mask-image:radial-gradient(1000px_circle_at_bottom,white,transparent)] md:[mask-image:radial-gradient(1000px_circle_at_right,white,transparent)] top-0 bottom-0 opacity-40"
+				)}
+			/>
+
 			<div>
 				<SectionTitle>Contact with me</SectionTitle>
 				<SectionHeading>Let’s talk about your project</SectionHeading>

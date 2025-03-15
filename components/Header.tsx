@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const navLinks = [
 	{ label: "Home", href: "/" },
-	{ label: "About", href: "/" },
-	{ label: "Skills", href: "/" },
-	{ label: "Projects", href: "/" },
-	{ label: "Contact", href: "/" },
+	{ label: "About", href: "/#about" },
+	{ label: "Features", href: "/#features" },
+	{ label: "Projects", href: "/#projects" },
+	{ label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {

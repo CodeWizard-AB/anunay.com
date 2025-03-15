@@ -128,7 +128,7 @@ export default function Hero() {
 						size={500}
 						className="from-pink-500 via-primary to-transparent"
 					/>
-					<Terminal className="w-full max-w-full">
+					<Terminal className="w-full max-w-[360px] sm:max-w-full">
 						<TypedAnimation />
 					</Terminal>
 				</motion.div>

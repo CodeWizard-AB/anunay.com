@@ -3,8 +3,6 @@ import Phone from "@/assets/phone.png";
 import FasterLoad from "@/assets/fast.png";
 import Image from "next/image";
 import Code from "@/assets/image.png";
-import * as motion from "motion/react-client";
-
 import SectionTitle from "./ui/section-title";
 import SectionHeading from "./ui/section-heading";
 import { GlowingEffect } from "./ui/glowing-effect";
@@ -12,16 +10,7 @@ import { GlowingEffect } from "./ui/glowing-effect";
 export default function Features() {
 	return (
 		<section className="mb-24" id="features">
-			<motion.div
-				initial={{ opacity: 0.5, y: 100 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{
-					delay: 0.3,
-					duration: 0.8,
-					ease: "easeInOut",
-				}}
-				className="mt-auto"
-			>
+			<div>
 				<SectionTitle>Quality features</SectionTitle>
 				<SectionHeading>Everything you need to build your app</SectionHeading>
 				<div className="mt-10 grid gap-4 sm:mt-16 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
@@ -51,6 +40,7 @@ export default function Features() {
 										className="size-full object-cover object-top"
 										src={Phone}
 										alt="Responsive Mobile Screen"
+										placeholder="blur"
 									/>
 								</div>
 							</div>
@@ -81,6 +71,7 @@ export default function Features() {
 							</div>
 							<div className="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
 								<Image
+									placeholder="blur"
 									className="w-full max-lg:max-w-xs"
 									src={FasterLoad}
 									alt="Faster Load Image"
@@ -116,6 +107,7 @@ export default function Features() {
 									className="h-52 lg:h-44 object-cover"
 									src={Security}
 									alt="Security Image"
+									placeholder="blur"
 								/>
 							</div>
 						</div>
@@ -145,6 +137,7 @@ export default function Features() {
 							<div className="relative min-h-[30rem] w-full grow">
 								<div className="absolute top-10 right-0 bottom-0 left-10 overflow-hidden border border-r-0 border-b-0 border-border rounded-tl-xl shadow-2xl">
 									<Image
+										placeholder="blur"
 										src={Code}
 										alt="code"
 										className="object-cover h-full object-left-bottom md:object-cover lg:object-left-bottom"
@@ -155,7 +148,7 @@ export default function Features() {
 						<div className="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
 					</div>
 				</div>
-			</motion.div>
+			</div>
 		</section>
 	);
 }
